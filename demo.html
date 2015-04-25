@@ -4,7 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/number_effect.js"></script>
+    <script type="text/javascript" src="js/number_animation.js"></script>
+    <script type="text/javascript">
+      function getNumberElements() {
+        var eles = document.getElementsByTagName("span");
+        var result = [];
+        for(var i = 0; i < eles.length; i++) {
+          if(eles[i].getAttribute("name").substr(0,3) === "ne_")
+            result.push(eles[i]);
+        }
+        return result;
+      }
+
+      window.onload = function() {
+                        var eles = getNumberElements();
+                        for(var i = 0; i < eles.length; i++) {
+                          number_animation(eles[i]);
+                        }
+                      };
+    </script>
     <style>
       span {
         color: #555;
